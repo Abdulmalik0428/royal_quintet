@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap");
+
+:root {
+  --bg: #0a0c10;
+  --card-bg: rgba(20, 25, 35, 0.9);
+  --accent: #00f5ff;
+  --text: #fafbfd;
+  --text-dim: #c6c7cc;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card-face {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  padding: 30px;
+  margin-top: 50px;
+  margin-left: 160px;
+  margin: 60px 10px;;
+}
+
+.card-back {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  padding: 30px;
+  margin-top: 50px;
+}
+ 
+.card-grid {
+  display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  transform-style: preserve-3d;
+  border-radius: var(--radius);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position:absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s, filter 0.3s;
+}
+
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+    0 0 25px rgba(0, 255, 255, 0.15) inset;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover .card-face::before,
+.card.flipped .card-face::before {
+  opacity: 1;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+      0 0 25px rgba(0, 255, 255, 0.15) inset;
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(0, 255, 255, 0.4),
+      0 0 35px rgba(0, 255, 255, 0.25) inset;
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+      0 0 25px rgba(0, 255, 255, 0.15) inset;
+  }
+}
+
+.card-front h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.card-front p {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.one {
+  background: url("Rasimlar/Muhammad.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.two {
+  background: url("Rasimlar/Elchinbek.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.three {
+  background: url("Rasimlar/Abdumalik.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.four {
+  background: url("Rasimlar/Behzod.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.five {
+  background: url("Rasimlar/Xurshidbek.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-back h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+ul.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.features li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.4rem;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+ul.features li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.cta-buttons a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.cta-buttons a.primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.cta-buttons a.primary:hover {
+  background: #00ffff;
+}
+
+.cta-buttons a.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.cta-buttons a.secondary:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .card-inner {
+    min-height: 300px;
+  }
+  .card-face {
+    padding: 18px;
+  }
+  .card-front h2 {
+    font-size: 1.3rem;
+  }
+  .card-back h3 {
+    font-size: 1.2rem;
+  }
+  ul.features li {
+    font-size: 0.9rem;
+  }
+}
+
+    </style>
+
+    <title>ROYAL QUINTET</title>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-dollar-circle bx-lg'></i>
+            <span class="text">ROYAL QUINTET</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="#">
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Bosh sahifa</span>
+                </a>
+            </li>
+            <li>
+                <a href="Dashboard.html">
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="MyStore.html">
+                    <i class='bx bxs-shopping-bag-alt bx-sm'></i>
+                    <span class="text">My Store</span>
+                </a>
+            </li>
+            <li>
+                <a href="Analytics.html">
+                    <i class='bx bxs-doughnut-chart bx-sm'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="LimitedTreasures.html">
+                    <i class='bx bxs-message-dots bx-sm'></i>
+                    <span class="text">Limited Treasures</span>
+                </a>
+            </li>
+            <li>
+                <a href="Invitations.html">
+                    <i class='bx bxs-group bx-sm'></i>
+                    <span class="text">Invitations</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog bx-sm bx-spin-hover'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="logout">
+                    <i class='bx bx-power-off bx-sm bx-burst-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu bx-sm'></i>
+            <a href="#" class="nav-link" id="categoriesLink"><i class='bx bxs-menu'></i> Menu</a>
+            <div class="categories-menu" id="categoriesMenu">
+                <ul>
+                    <li><a href="index.html"><i class='bx bxs-home'></i>Home</a></li>
+                    <li><a href="#"><i class='bx bxs-cloud-download'></i>Download</a></li>
+                    <li><a href="Analytics.html"><i class='bx bxs-doughnut-chart'></i>Analytics</a></li>
+                    <li><a href="https://t.me/RakhmatullayevMukhammad"><i class='bx bxs-message-dots'></i>Support</a></li>
+                    <li><a href="shopping-cart-js/dist/index.html"><i class='bx bxs-shopping-bag-alt'></i>Shop</a></li>
+                </ul>
+            </div>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+            <label class="swith-lm" for="switch-mode" title="Toggle Dark/Light Mode">
+                <i class="bx bxs-moon"></i>
+                <i class="bx bx-sun"></i>
+                <div class="ball"></div>
+            </label>
+
+            <!-- Notification Bell -->
+            <a href="#" class="notification" id="notificationIcon" aria-label="Notifications">
+                <i class='bx bxs-bell bx-tada-hover'></i>
+                <span class="num">5</span>
+            </a>
+            <div class="notification-menu" id="notificationMenu">
+                <ul>
+                    <li>Elchinbekdam sizga yangi xabar bor !</li>
+                    <li>Sizning tartib raqamingiz.</li>
+                    <li>Sizning buyurtmangiz tayyor olib ketishingiz mumkin.</li>
+                    <li>Sizga qo'shimcha bonuslar taqdim etildi.</li>
+                    <li>Sizga qulay usulda to'lovni amalga oshiring !</li>
+                </ul>
+            </div>
+
+            <!-- Profile Menu -->
+            <a href="#" class="profile" id="profileIcon">
+                <img src="data:image/png;base64,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"
+                    alt="Profile">
+            </a>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- NAVBAR -->
+
+<div class="rasmmmm">
+    
+<div class="card-grid">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-face card-front one">
+        <div>
+          <h2>Muhammad</h2>
+        </div>
+        <p>Tap or click to flip</p>
+      </div>
+      <div class="card-face card-back">
+        <div>
+          <h3>Muhammad</h3>
+          <ul class="features">
+            <li>Saytni tuzulishi</li>
+            <li>Veb saytga o'zgartirishlar kiritish</li>
+            <li>Saytni boshqarish</li>
+            <li>Texnik xatoliklarni tuzatish</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="#" class="primary">Get Started</a>
+          <a href="#" class="secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-face card-front two">
+        <div>
+          <h2>Elchinbek</h2>
+        </div>
+        <p>Tap or click to flip</p>
+      </div>
+      <div class="card-face card-back">
+        <div>
+          <h3>Elchinbek</h3>
+          <ul class="features">
+            <li>Auto-scaling engine</li>
+            <li>low-latency network</li>
+            <li>Zero-downtime</li>
+            <li>Built-in analytics</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="#" class="primary">Deploy Now</a>
+          <a href="#" class="secondary">Docs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-face card-front three">
+        <div>
+          <h2>Abdumalik</h2>
+        </div>
+        <p>Tap or click to flip</p>
+      </div>
+      <div class="card-face card-back">
+        <div>
+          <h3>Abdumalik</h3>
+          <ul class="features">
+            <li>In-browser training engine</li>
+            <li>Model visualization tools</li>
+            <li>Secure model hosting</li>
+            <li>Dataset builder</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="#" class="primary">Try Nova</a>
+          <a href="#" class="secondary">Explore API</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-face card-front four">
+        <div>
+          <h2>Behzod</h2>
+        </div>
+        <p>Tap or click to flip</p>
+      </div>
+      <div class="card-face card-back">
+        <div>
+          <h3>Behzod</h3>
+          <ul class="features">
+            <li>Live dashboards</li>
+            <li>Predictive forecasting</li>
+            <li>Custom alerts & triggers</li>
+            <li>AI-based anomaly tracking</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="#" class="primary">Start Free</a>
+          <a href="#" class="secondary">View Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Card 5 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-face card-front five" >
+        <div>
+          <h2>Xurshidbek</h2>
+        </div>
+        <p>Tap or click to flip</p>
+      </div>
+      <div class="card-face card-back">
+        <div>
+          <h3>Xurshidbek</h3>
+          <ul class="features">
+            <li>Lightning-fast rendering</li>
+            <li>Modular component system</li>
+            <li>Seamless API integration</li>
+            <li>AI-powered UI suggestions</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="#" class="primary">Get Started</a>
+          <a href="#" class="secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+    <script>
+        const isTouch = "ontouchstart" in window;
+
+document.querySelectorAll(".card").forEach((card) => {
+  const inner = card.querySelector(".card-inner");
+
+  // Tap/click flip met subtiele scale-bounce
+  card.addEventListener("click", () => {
+    const baseRotate = card.classList.contains("flipped") ? 0 : 180;
+
+    inner.style.transition = "transform 0.15s ease-out";
+    inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
+
+    setTimeout(() => {
+      inner.style.transition = "transform 0.7s cubic-bezier(.4,.2,.2,1)";
+      inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
+      card.classList.toggle("flipped");
+    }, 150);
+  });
+
+  if (!isTouch) {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
+      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
+      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  }
+});
+
+    </script>
+</body>
+
+</html>

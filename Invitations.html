@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('https://i.imgur.com/ioTv6On.png');
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .sfondo {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            background-image: url(https://i.postimg.cc/RCpfjPjV/SFONDO-SCHEDA-5.png);
+            background-size: cover;
+            scale: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #mmgallery {
+            width: 278px;
+            height: 375px;
+            position: relative;
+            top: 126px;
+            left: 7px;
+            background-image: url(Rasimlar/R2.jpg);
+            background-size: cover;
+            outline: 1px solid #c0c0c0;
+            overflow: hidden;
+            background-color: #c0c0c0;
+            line-height: 130%;
+            z-index: 4;
+        }
+
+        #mmgallery titletext {
+            display: block;
+            font-family: open sans;
+            color: #aaa;
+            text-transform: uppercase;
+            font-size: 8px;
+            letter-spacing: 4px;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            position: absolute;
+            top: 180px;
+            left: -202px;
+            width: 450px;
+            line-height: 130%;
+            transition: 0.7s;
+            transition-delay: 1.2s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 1.2s;
+        }
+
+        #mmgallery titletext:nth-child(2) {
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            width: 450px;
+            left: 30px;
+            top: 183px;
+            letter-spacing: 3px;
+            transition: 0.7s;
+            transition-delay: 1.2s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 1.2s;
+        }
+
+        #mmgallery:hover titletext {
+            top: -235px;
+            transition-delay: 0s;
+            -webkit-transition-delay: 0s;
+        }
+
+        #mmgallery:hover titletext:nth-child(2) {
+            top: 810px;
+            transition-delay: 0s;
+            -webkit-transition-delay: 0s;
+        }
+
+        #mmgallery titletext1 {
+            display: block;
+            font-family: open sans;
+            color: #aaa;
+            text-transform: uppercase;
+            font-size: 8px;
+            letter-spacing: 1.4px;
+            position: absolute;
+            top: 18px;
+            left: -85px;
+            width: 450px;
+            line-height: 130%;
+            transition: 0.7s;
+            transition-delay: 1.2s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 1.2s;
+        }
+
+        #mmgallery titletext1:nth-child(odd) {
+            top: 349px;
+            transform: rotate(180deg);
+            letter-spacing: 1.2px;
+            -webkit-transform: rotate(180deg);
+            left: -87px;
+        }
+
+        #mmgallery:hover titletext1 {
+            left: 375px;
+            transition-delay: 0s;
+            -webkit-transition-delay: 0s;
+        }
+
+        #mmgallery:hover titletext1:nth-child(odd) {
+            left: -492px;
+            transition-delay: 0s;
+            -webkit-transition-delay: 0s;
+        }
+
+        #mmgallery randoletters {
+            display: block;
+            font-family: open sans;
+            color: #9a9a9a;
+            text-transform: uppercase;
+            font-size: 8px;
+            letter-spacing: 45px;
+            position: absolute;
+            top: 210px;
+            left: 34px;
+            width: 280px;
+            line-height: 450%;
+            text-align: left;
+            transition: 0.7s;
+            -webkit-transition: 0.7s;
+            opacity: 1;
+            transition-delay: 1.2s;
+            -webkit-transition-delay: 1.2s;
+        }
+
+        #mmgallery:hover randoletters {
+            opacity: 0;
+            transition-delay: 0s;
+            -webkit-transition-delay: 0s;
+        }
+
+        .mmmainover {
+            position: absolute;
+            background: #729bc7;
+            height: 324.5px;
+            width: 224px;
+            top: 26.5px;
+            left: 26.5px;
+            outline: 1px solid #ddd;
+            mix-blend-mode: multiply;
+            opacity: 0;
+            transition: 0.7s;
+            transition-delay: 0.5s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 0.5s;
+        }
+
+        #mmgallery:hover .mmmainover {
+            opacity: 1;
+            transition: 0.7s;
+            transition-delay: 0.7s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 0.7s;
+        }
+
+        .mmaintainer {
+            width: 370px;
+            height: 378px;
+            top: 8px;
+            position: relative;
+            opacity: 0;
+            transition: 0.7s;
+            transition-delay: 0s;
+            -webkit-transition: 0.7s;
+            -webkit-transition-delay: 0s;
+        }
+
+        #mmgallery:hover .mmaintainer {
+            opacity: 1;
+            transition: 1s;
+            transition-delay: 1s;
+            -webkit-transition: 1s;
+            -webkit-transition-delay: 0.8s;
+        }
+
+        #mmgallery input {
+            display: none
+        }
+
+        #mmgallery label {
+            display: block;
+            position: relative;
+            width: 13px;
+            height: 17px;
+            top: 37px;
+            left: 17px;
+            cursor: pointer;
+            z-index: 0;
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 15px;
+            margin-left: 0px;
+            margin-right: 5px;
+            text-align: center;
+            transition: 0.3s;
+            background: none;
+            transition: opacity 0.5s linear;
+            transition-delay: 0s;
+            -webkit-transition: opacity 0.5s;
+            -webkit-transition-delay: opacity 0s;
+            opacity: 0;
+            font-family: open sans;
+            font-style: italic;
+            border-bottom: 1px solid #95161b;
+            line-height: 200% !important;
+        }
+
+        #mmgallery:hover label {
+            transition: opacity 0.3s linear;
+            transition-delay: 1s;
+            -webkit-transition: opacity 0.3s linear;
+            -webkit-transition-delay: 1s;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        #mmgallery:hover .mlabel1 {
+            transition-delay: 1.3s;
+            -webkit-transition-delay: 1.3s;
+        }
+
+        #mmgallery:hover .mlabel2 {
+            transition-delay: 1.6s;
+            -webkit-transition-delay: 1.6s;
+        }
+
+        #mmgallery:hover .mlabel3 {
+            transition-delay: 1.9s;
+            -webkit-transition-delay: 1.9s;
+        }
+
+        .mmainin {
+            background-image: url('https://media.istockphoto.com/id/2151795188/es/foto/empty-white-watercolor-paper-canvas-texture-background.jpg?s=612x612&w=0&k=20&c=MH-gcyN5lImSmAY2Ix-snOmxstKwKINOZNK8zad3i9M=');
+            position: absolute;
+            top: 19.5px;
+            left: 26.5px;
+            height: 313px;
+            width: 214.5px;
+            outline: 1px solid #000;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 1;
+            padding: 5px;
+            font-family: calibri;
+            font-size: 11px;
+            color: #888;
+            line-height: 10px;
+            text-align: justify;
+            text-shadow: none;
+        }
+
+        .cornicetta {
+            padding: 8px 8px 8px 10px;
+            border: 1px dashed #9a9a9a;
+            height: 295px;
+        }
+
+        #mintro:checked~.mmainin {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .mmainin1 {
+            background: rgba(243, 243, 243, 0.9);
+            position: absolute;
+            top: 50px;
+            left: 73px;
+            height: 357px;
+            width: 225px;
+            outline: 1px solid #ccc;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        #mtemp:checked~.mmainin1 {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .mmainin2 {
+            background: rgba(243, 243, 243, 0.9);
+            position: absolute;
+            top: 50px;
+            left: 73px;
+            height: 357px;
+            width: 225px;
+            outline: 1px solid #ccc;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        #msite:checked~.mmainin2 {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .mmainin3 {
+            background: rgba(243, 243, 243, 0.9);
+            position: absolute;
+            top: 50px;
+            left: 73px;
+            height: 357px;
+            width: 225px;
+            outline: 1px solid #ddd;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        #mchall:checked~.mmainin3 {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        #mmgallery title {
+            position: relative;
+            font-family: open sans;
+            color: #957716;
+            display: block;
+            left: 15px;
+            top: 32px;
+            width: 200px;
+            height: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        #mmgallery textscroll {
+            width: 200px;
+            left: 10px;
+            height: 362px;
+            top: 10px;
+            display: block;
+            position: absolute;
+            padding-right: 5px;
+            overflow: auto;
+            font-family: open sans;
+            font-size: 11px;
+            color: #888;
+            text-align: justify;
+            line-height: 170%;
+        }
+
+        #mmgallery subtitle {
+            position: relative;
+            font-family: open sans;
+            color: #95161b;
+            display: block;
+            width: 170px;
+            height: 17px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            border-bottom: 1px solid #ccc;
+            text-align: right;
+            margin: 5px 0px;
+        }
+
+        .ntexto {
+            position: absolute;
+            color: var(--text);
+            background: var(--bckg1);
+            backdrop-filter: var(--backdrop);
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            border: 1px dotted #ffffff40;
+            outline: #040404 solid 3px;
+            padding: 5px;
+            transition: ease 1s;
+            transform: scale(0);
+            overflow: auto;
+            text-align: justify;
+            box-shadow: 0px 0px 5px #000;
+            font-family: calibri;
+            text-align: justify;
+            text-shadow: 1px 1px 1px #000;
+            font-size: 11px;
+            line-height: 10px;
+            letter-spacing: 0px;
+        }
+
+        .notch:hover .ntexto {
+            transform: scale(1);
+            transition-delay: 0.8s;
+        }
+
+        .tit {
+            margin-bottom: 10px;
+            font-family: tahoma;
+            text-transform: uppercase;
+            font-size: 7px;
+            color: #444;
+            letter-spacing: 2px;
+            text-shadow: 1px 0px 0px #000;
+            line-height: 9px;
+            transition: 1s ease-in-out;
+            text-align: center;
+        }
+
+        .tit:hover {
+            color: #584c20;
+        }
+
+        .contenitoregiflunga {
+            width: 213px;
+            text-align: center;
+            margin: 4px 0 4px -11px;
+            border: 1px solid #9a9a9a;
+        }
+
+        .gif_lunga {
+            height: 20px;
+            width: 100%;
+            background-image: url(https://i.pinimg.com/originals/04/97/65/0497650436284f9ef45ae1ef8a985287.gif);
+            background-position: 20% 18%;
+            background-size: 100%;
+        }
+
+        /* -------------- GIFFINE -------------- */
+
+        .contenitoregiffine {
+            width: 250px;
+            position: absolute;
+            top: 60px;
+            left: 305px;
+            transform: rotate(25deg);
+            display: inline-block;
+        }
+
+        .giffine {
+            height: 70px;
+            border: 3px solid #fff;
+            box-shadow: 5px 5px 3px #0000009e;
+        }
+
+        .gif1 {
+            position: relative;
+            top: 125px;
+            transform: rotate(0deg);
+            transition: 1s ease-out;
+        }
+
+        .gif2 {
+            position: relative;
+            top: 125px;
+            left: -50px;
+            transition: 1s ease-out;
+        }
+
+        .gif3 {
+            position: relative;
+            top: 125px;
+            left: -100px;
+            transform: rotate(0deg);
+            transition: 1s ease-out;
+        }
+
+        .sfondo:hover .gif1 {
+            top: 25px;
+            transform: rotate(-35deg);
+            transition: 0.8s ease-out;
+            transition-delay: 0.5s;
+        }
+
+        .sfondo:hover .gif2 {
+            top: 0px;
+            left: 0px;
+            transition: 0.8s ease-out;
+            transition-delay: 1.5s;
+        }
+
+        .sfondo:hover .gif3 {
+            top: 35px;
+            left: -10px;
+            transform: rotate(16deg);
+            transition: 0.8s ease-out;
+            transition-delay: 1s;
+        }
+
+        /* -------------- RIQUADRO LATERALE -------------- */
+
+        .extra {
+            width: 200px;
+            height: 118px;
+            transition: 0.8s ease-out;
+            right: 250px;
+            top: 350px;
+            position: absolute;
+            text-align: center;
+            transform: rotate(10deg);
+            background-image: url('https://media.istockphoto.com/id/2151795188/es/foto/empty-white-watercolor-paper-canvas-texture-background.jpg?s=612x612&w=0&k=20&c=MH-gcyN5lImSmAY2Ix-snOmxstKwKINOZNK8zad3i9M=');
+            background-position: center;
+            padding: 0px;
+            font-family: calibri;
+            font-size: 11px;
+            color: #888;
+            line-height: 10.5px;
+            text-align: justify;
+            border: 1px solid #000;
+            outline: 5px solid #fff;
+            text-shadow: none;
+            box-shadow: 10px 10px 5px #0000009e;
+            display: inline-block;
+        }
+
+        .cornicettaextra {
+            margin: 5px;
+            padding: 5px;
+            border: 1px dashed #9a9a9a;
+            height: 96.5px;
+        }
+
+        .sfondo:hover .extra {
+            transition: 1s;
+            transform: rotate(-10deg);
+            top: 350px;
+            right: 422px;
+        }
+
+
+        /* ------------------------------ ANIMATION ------------------------------ */
+
+        .box_light {
+            position: absolute;
+            overflow: none;
+
+            width: 20px;
+            height: 20px;
+            top: 0px;
+            left: 50%;
+            transform: translate(0%, 0px) rotate(0deg);
+            background: none;
+            animation: move 20s infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(-520%, 95px) rotate(0deg);
+                z-index: 6;
+            }
+
+            15% {
+                transform: translate(-520%, 95px) rotate(0deg);
+            }
+
+            20% {
+                transform: translate(750%, 215px) rotate(30deg);
+            }
+
+            30% {
+                transform: translate(750%, 215px) rotate(20deg);
+                z-index: 6;
+            }
+
+            31% {
+                z-index: 4;
+            }
+
+            40% {
+                transform: translate(-840%, 300px) rotate(-60deg);
+                z-index: 4;
+            }
+
+            50% {
+                transform: translate(-840%, 300px) rotate(-120deg);
+                z-index: 4;
+            }
+
+            51% {
+                z-index: 6;
+            }
+
+            60% {
+                transform: translate(700%, 500px) rotate(100deg);
+                z-index: 8;
+            }
+
+            70% {
+                transform: translate(700%, 500px) rotate(100deg);
+                z-index: 8;
+            }
+
+            85% {
+                transform: translate(0%, 550px) rotate(100deg);
+                z-index: 4;
+            }
+
+            86% {
+                z-index: 6;
+            }
+
+            90% {
+                transform: translate(-920%, 165px) rotate(30deg);
+                z-index: 6;
+            }
+
+            95% {
+                transform: translate(-920%, 165px) rotate(10deg);
+                z-index: 2;
+            }
+
+            96% {
+                z-index: 2;
+            }
+
+            100% {
+                transform: translate(-520%, 95px) rotate(0deg);
+                z-index: 6;
+            }
+        }
+
+        .light {
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+
+            width: 4px;
+            height: 4px;
+            top: 0%;
+            left: 0%;
+            transform: translate(0px, 0px);
+            background: #c0c0c0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #c0c0c0;
+            transition: all .5s ease-out .5s;
+            animation: light3 1s infinite;
+        }
+
+        .darker {
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+
+            width: 3px;
+            height: 3px;
+            top: 0px;
+            right: 0px;
+            transform: translate(0px, 0px);
+            background: #9a9a9a;
+            border-radius: 3px;
+            box-shadow: 0px 0px 5px #9a9a9a;
+            animation: light2 1.5s infinite;
+        }
+
+        .lighter {
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+
+            width: 4px;
+            height: 4px;
+            top: 50%;
+            left: 50%;
+            transform: translate(60%, -30%);
+            background: #f0f0f0;
+            border-radius: 3px;
+            box-shadow: 0px 0px 5px #f0f0f0;
+            animation: light1 3s infinite;
+        }
+
+        @keyframes light1 {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+
+            20% {
+                transform: translate(-30%, -100%);
+            }
+
+            25% {
+                transform: translate(50%, -150%);
+            }
+
+            30% {
+                transform: translate(60%, -30%);
+            }
+
+            50% {
+                transform: translate(-50%, 50%);
+            }
+
+            70% {
+                transform: translate(-60%, 20%);
+            }
+
+            75% {
+                transform: translate(-100%, 0%);
+            }
+
+            80% {
+                transform: translate(-80%, -80%);
+            }
+
+            100% {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes light2 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            20% {
+                transform: translate(-5px, 0px);
+            }
+
+            40% {
+                transform: translate(-2px, 5px);
+            }
+
+            60% {
+                transform: translate(-2px, 3px);
+            }
+
+            80% {
+                transform: translate(-7px, 2px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+
+        @keyframes light3 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            20% {
+                transform: translate(5px, 0px);
+            }
+
+            40% {
+                transform: translate(2px, 5px);
+            }
+
+            60% {
+                transform: translate(2px, 3px);
+            }
+
+            80% {
+                transform: translate(7px, 2px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+
+        c {
+            font-family: calibri;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        d {
+            color: #729bc7;
+        }
+
+        e {
+            font-family: georgia;
+            font-size: 9px;
+            color: #898989;
+            font-style: italic;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        f {
+            font-family: Tahoma;
+            font-size: 8px;
+            color: #584c20;
+            ;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 1px 0px 0px #000;
+        }
+
+        g {
+            letter-spacing: 1.5px;
+            color: #404040
+        }
+
+        k {
+            text-decoration: underline wavy #729bc7;
+        }
+
+        l {
+            color: #a32a17;
+            text-transform: uppercase;
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: inset 0px -5px 0px rgb(247 172 33 / 90%);
+            border-radius: 10% 80%;
+        }
+
+        /*SOTTOLINEATO GIALLO tipo: Ya, ya me estás gustando más de lo normal*/
+
+        h {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 15px;
+            /*LUNA E. DAVIS*/
+            letter-spacing: 2px;
+            padding: 2px 3px 0 3px;
+            font-family: 'bebas neue', sans-serif;
+            margin: 8px;
+            background: linear-gradient(90deg, rgba(180, 58, 58, 1) 0%, rgba(253, 29, 29, 1) 33%, rgba(252, 176, 69, 1) 87%);
+        }
+
+
+
+        body {
+            background: url('https://i.imgur.com/ioTv6On.png');
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Fjalla+One&family=Major+Mono+Display&family=Offside&family=Rajdhani:wght@300&family=Unica+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+        div {
+            cursor: crosshair;
+        }
+
+        div.dati {
+            background-color: #080808;
+            width: 400px;
+            border-right: 1px dotted #084749;
+            border-left: 1px dotted #084749;
+            color: #3E3E3E;
+            font-family: Arial;
+            font-size: 10px;
+            text-shadow: 1px 1px 0 #000;
+            padding: 4px;
+        }
+
+        div.dati:hover {
+            background-color: #080808;
+            width: 400px;
+            border-right: 1px dashed #A7F07D;
+            border-left: 1px dashed #A7F07D;
+            color: #3E3E3E;
+            font-family: Arial;
+            font-size: 10px;
+            text-shadow: 1px 1px 0 #000;
+            padding: 4px;
+        }
+
+        nome {
+            font-family: 'Amatic SC', cursive;
+            font-size: 15px;
+            color: #7998cc;
+            letter-spacing: 2px;
+            line-height: 15px;
+        }
+
+        .immaginegrande {
+            position: relative;
+            top: 30px;
+            width: 500px;
+            height: 366px;
+            border: 1px solid #000;
+            box-shadow: 2px 4px 6px #000;
+            transform: rotate(-5deg);
+            background-image: url('Rasimlar/R5.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: all 1.5s ease-in-out;
+        }
+
+        .immaginegrande:hover {
+            background-image: url('Rasimlar/R6.jpg');
+            filter: brightness(0.7)contrast(120%);
+            transition: all 1.5s ease-in-out;
+        }
+
+        .comparsa {
+            position: absolute;
+            height: auto;
+            width: 210px;
+            margin-left: 140px;
+            margin-top: 180px;
+            opacity: 0;
+            -webkit-transition: mix-blend-mode 1.5s ease-in-out;
+            -moz-transition: mix-blend-mode 1.5s ease-in-out;
+            -o-transition: mix-blend-mode 1.5s ease-in-out;
+            -ms-transition: mix-blend-mode 1.5s ease-in-out;
+            transition: mix-blend-mode 1.5s ease-in-out;
+        }
+
+        .comparsa:hover {
+            opacity: 1;
+            -webkit-transition: mix-blend-mode 1.5s ease-in-out;
+            -moz-transition: mix-blend-mode 1.5s ease-in-out;
+            -o-transition: mix-blend-mode 1.5s ease-in-out;
+            -ms-transition: mix-blend-mode 1.5s ease-in-out;
+            transition: mix-blend-mode 1.5s ease-in-out;
+        }
+
+        .gifRebe {
+            width: 350px;
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gifRebe img {
+            height: 50px;
+            margin: 5px;
+            border: 1px dotted #C0C0C0;
+        }
+
+        .fraseRebe {
+            color: #C0C0C0;
+            font-family: homemade apple;
+            font-style: normal;
+            font-weight: normal;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 0px;
+            text-shadow: 1px 1px 1px black;
+            margin-top: -20px;
+        }
+
+        .boxTestoRebe {
+            width: 300px;
+            height: 180px;
+            color: #666;
+            overflow: hidden;
+            margin: auto;
+            font-family: calibri;
+            font-size: 11px;
+            text-align: justify;
+            line-height: 10px;
+        }
+
+        .boxSxRebe {
+            float: left;
+            width: 200px;
+            height: 110px;
+            background-color: #2C2828;
+            position: relative;
+            z-index: 3;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-top: 5px;
+            border-right: 3px solid #DBDBDD;
+
+        }
+
+        .boxSxRebe::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .boxDxRebe {
+            float: right;
+            width: 17%;
+        }
+
+        .pinPills {
+            width: 50px;
+            height: 10px;
+            margin-left: -60px;
+            margin-top: -100px;
+            padding: 5px;
+            padding-left: 10px;
+            background: #f0f0f0;
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            color: black;
+            position: relative;
+            z-index: 0;
+            transition: all 1.5s ease-in-out;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .pinPills a {
+            color: #2C2828;
+            transition: all 1.5s ease-in-out;
+            text-decoration: none;
+        }
+
+        .pinPills:hover {
+            transition: all 1.5s ease-in-out;
+            color: #9a9a9a;
+            margin-left: -35px;
+        }
+
+        .pinMood {
+            width: 50px;
+            height: 10px;
+            margin-left: -60px;
+            padding: 5px;
+            padding-left: 10px;
+            background: #c0c0c0;
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            color: #cfb317;
+            position: relative;
+            z-index: 0;
+            transition: all 1.5s ease-in-out;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .pinMood a {
+            color: #c0edff;
+            transition: all 1.5s ease-in-out;
+            text-decoration: none;
+        }
+
+        .pinMood:hover {
+            transition: all 1.5s ease-in-out;
+            margin-left: -35px;
+            color: white;
+        }
+
+        .pinOff {
+            width: 50px;
+            height: 10px;
+            margin-left: -45px;
+            padding: 5px;
+            padding-left: 10px;
+            background: #9a9a9a;
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            color: #1783cf;
+            position: relative;
+            z-index: 0;
+            transition: all 1.5s ease-in-out;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .pinOff a {
+            color: #e0fffe;
+            transition: all 1.5s ease-in-out;
+            text-decoration: none;
+        }
+
+        .pinOff:hover {
+            transition: all 1.5s ease-in-out;
+            margin-left: -35px;
+            color: white;
+        }
+
+        .hidden,
+        .hidden1,
+        .hidden2 {
+            opacity: 0;
+            margin-top: -115px;
+            position: relative;
+            height: 110px;
+            overflow: auto;
+        }
+
+        .hidden:target,
+        .hidden1:target,
+        .hidden2:target {
+            opacity: 1;
+            z-index: 10000;
+        }
+
+        .backRebe {
+            font-family: Poppins;
+            text-transform: uppercase;
+            font-size: 11px;
+            transform: rotate(90deg);
+            margin-top: 73px;
+            margin-left: -90px;
+        }
+
+        .backRebe a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .modalonaFiga {
+            position: absolute;
+            z-index: 99999;
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+            margin-left: -230px;
+            margin-top: 0px;
+        }
+
+        .modalonaFiga:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .divModale {
+            width: 180px;
+            position: relative;
+            margin: 10% auto;
+            padding: 15px;
+            background: #c0c0c0;
+            font-family: cambria;
+            font-size: 10px;
+            color: black;
+            box-shadow: -2px 2px 4px black;
+        }
+
+        .chiudiModaly {
+            background: #000;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 25px;
+            font-family: cambria;
+            text-decoration: none;
+            font-weight: bold;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+
+        v {
+            text-align: justify;
+            font-family: verdana;
+            font-size: 11px;
+            line-height: 10px;
+            color: #765fb0;
+            letter-spacing: 3px;
+        }
+
+        v2 {
+            text-align: justify;
+            font-family: tahoma;
+            text-transform: uppercase;
+            font-size: 9px;
+            line-height: 9px;
+            color: #883689;
+            letter-spacing: 2px;
+        }
+
+        v3 {
+            text-align: justify;
+            font-family: tahoma;
+            font-size: 10px;
+            line-height: 10px;
+            color: #49726c;
+            letter-spacing: 2px;
+        }
+
+        u {
+            text-decoration: underline dotted 1px #111;
+        }
+
+        k {
+            color: #729bc7;
+        }
+
+        d {
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        r {
+            color: #999;
+            letter-spacing: 1px;
+            font-family: georgia
+        }
+
+        f {
+            font-style: italic;
+            color: #999
+        }
+
+        l {
+            font-family: times new romans;
+            color: #729bc7;
+            letter-spacing: 0.1px;
+            opacity: 0.8;
+            word-spacing: 0.1px;
+        }
+
+        l:hover {
+            color: #c0c0c0;
+            transition: 0.5s;
+        }
+
+        .light {
+            transition: 0.4s;
+        }
+
+        .light:hover {
+            transition: 0.4s;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ceb236, 0 0 82px #ceb236, 0 0 92px #ceb236, 0 0 102px #ceb236;
+        }
+
+
+
+
+
+
+        body {
+            background: url('https://i.imgur.com/ioTv6On.png');
+        }
+
+        .boxtitolo {
+            width: 500px;
+            margin-top: 40px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+
+        }
+
+        .contenitore {
+            width: 500px;
+            height: 383px;
+            overflow: hidden;
+
+        }
+
+        .immSN {
+            position: absolute;
+            opacity: 80%;
+            margin-left: 0px;
+            margin-top: 0px;
+            -webkit-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .immSN:hover {
+            opacity: 1;
+        }
+
+        .immDX {
+            position: absolute;
+            opacity: 80%;
+            margin-left: 270px;
+            margin-top: 0px;
+            -webkit-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .immDX:hover {
+            opacity: 1;
+        }
+
+        .box {
+            position: relative;
+            background: url('https://i.imgur.com/B3lp7kp.png') repeat top left;
+            width: 180px;
+            height: 200px;
+            margin-left: 45px;
+            margin-top: 18px;
+            padding: 0px;
+            overflow: hidden;
+            box-shadow: 0px 0px 18px #000000ba;
+        }
+
+
+        .testo {
+            width: 150px;
+            height: 200px;
+            color: #4b4e62;
+            background-color: #000000f4;
+            font-family: times new roman;
+            font-size: 12px;
+            text-align: justify;
+            line-height: 12px;
+            padding: 10px 5px 0px 5px;
+            overflow: auto;
+            margin: auto;
+        }
+
+        .testo::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        l {
+            color: #ae9446;
+            letter-spacing: 1px;
+            font-family: georgia;
+            font-style: italic;
+        }
+
+
+        x {
+            color: #912f2f;
+            font-size: 8px;
+            font-family: Cambria;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        x2 {
+            color: #912f2f;
+            font-size: 12px;
+            font-family: Cambria;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        y {
+            font-size: 11px;
+            text-align: right;
+            width: 350px;
+            color: #e8e9f4;
+            font-family: palatino linotype, book antiqua, palatino, serif;
+            line-height: 9px;
+        }
+
+        y2 {
+            font-size: 11px;
+            text-align: right;
+            width: 350px;
+            color: #0015ff;
+            font-family: palatino linotype, book antiqua, palatino, serif;
+            letter-spacing: 2px;
+            line-height: 7px;
+        }
+
+        .light {
+            transition: 0.4s;
+        }
+
+        .light:hover {
+            transition: 0.4s;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ceb236, 0 0 82px #ceb236, 0 0 92px #ceb236, 0 0 102px #ceb236;
+        }
+
+        .zoom {
+            transition: 0.4s;
+        }
+
+        .zoom:hover {
+            transition: 0.4s;
+            letter-spacing: 3px;
+
+        }
+    </style>
+    <title>ROYAL QUINTET</title>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-dollar-circle  bx-lg'></i>
+            <span class="text">ROYAL QUINTET</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="index.html">
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Bosh oyna</span>
+                </a>
+            </li>
+            <li>
+                <a href="Dashboard.html">
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="MyStore.html">
+                    <i class='bx bxs-shopping-bag-alt bx-sm'></i>
+                    <span class="text">My Store</span>
+                </a>
+            </li>
+            <li>
+                <a href="Analytics.html">
+                    <i class='bx bxs-doughnut-chart bx-sm'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="LimitedTreasures.html">
+                    <i class='bx bxs-message-dots bx-sm'></i>
+                    <span class="text">Limited Treasures</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class='bx bxs-group bx-sm'></i>
+                    <span class="text">Invitations</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog bx-sm bx-spin-hover'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="logout">
+                    <i class='bx bx-power-off bx-sm bx-burst-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu bx-sm'></i>
+            <a href="#" class="nav-link" id="categoriesLink">Menu</a>
+            <div class="categories-menu" id="categoriesMenu">
+                <ul>
+                    <li><a href="#"><i class='bx bxs-devices'></i>Electronics</a></li>
+                    <li><a href="#"><i class='bx bxs-t-shirt'></i>Fashion</a></li>
+                    <li><a href="#"><i class='bx bxs-home'></i>Home & Garden</a></li>
+                    <li><a href="#"><i class='bx bxs-football'></i>Sports</a></li>
+                    <li><a href="#"><i class='bx bxs-book'></i>Books</a></li>
+                </ul>
+            </div>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+            <label class="swith-lm" for="switch-mode" title="Toggle Dark/Light Mode">
+                <i class="bx bxs-moon"></i>
+                <i class="bx bx-sun"></i>
+                <div class="ball"></div>
+            </label>
+
+            <!-- Notification Bell -->
+            <a href="#" class="notification" id="notificationIcon" aria-label="Notifications">
+                <i class='bx bxs-bell bx-tada-hover'></i>
+                <span class="num">5</span>
+            </a>
+            <div class="notification-menu" id="notificationMenu">
+                <ul>
+                    <li>New message from John</li>
+                    <li>Your order has been shipped</li>
+                    <li>New comment on your post</li>
+                    <li>Update available for your app</li>
+                    <li>Reminder: Meeting at 3PM</li>
+                </ul>
+            </div>
+
+            <!-- Profile Menu -->
+            <a href="#" class="profile" id="profileIcon">
+                <img src="data:image/png;base64,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"
+                    alt="Profile">
+            </a>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- NAVBAR -->
+
+
+        <!-- MAIN -->
+
+        <div class="a1">
+
+            <div class="b1">
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Vina+Sans&display=swap"
+                    rel="stylesheet">
+
+                <center>
+                    <div class="sfondo">
+
+                        <div class="box_light">
+                            <div class="light"></div>
+                            <div class="darker"></div>
+                            <div class="lighter"></div>
+                        </div>
+
+                        <div class="contenitoregiffine">
+                            <img class="giffine gif1" src="Rasimlar/R1.jpg">
+                            <img class="giffine gif2" src="Rasimlar/R.png">
+                            <img class="giffine gif3" src="Rasimlar/R3.jpg">
+                        </div>
+
+                        <div class="extra">
+                            <div class="cornicettaextra">
+                                <div style="height: 114px; padding-top: 1px; overflow: auto;">
+
+                                    <c>Koleksiya uslubi:</c> Royal Quintet ustalarining qo‘l mehnati bilan yaratilgan,
+                                    nozik ishlovli <e>oltin-qaymoq qotishmasi</e> va individual buyurtma asosida
+                                    shakllangan nafis detallar<br>
+                                    <c>Ma’lumoti:</c> “<f>Jez</f>” seriyasi — ixcham, nafis va jonli xarakterga ega
+                                    limitlangan kolleksiya<br>
+                                    <c>Xushbo‘ylik ruhi:</c> toza havo, yomg‘ir hidi, bo‘ronning kuchi va <k>
+                                        lola-yomg‘ir guli</k>ning noyob aks-sadosi<br>
+                                    <c>Maxfiy dizayn:</c> qorong‘ulikdan tug‘ilgan <i>sirli</i> shakl, soyalar bilan
+                                    chizilgan, ichida esa <d>moviy nurlar</d> yashiringan<br>
+                                    <c>Timsol:</c> Royal Quintetning ramzi — Zouwu singari kuch, nazokat va yovuzlikdan
+                                    xoli erkinlik<br>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mmgallery">
+                            <titletext>Bir tomchi porloq oltin ham vaqt o‘tsa o‘chmaydimi?</titletext>
+                            <titletext>Qanchalik yorqin bo‘lsa nur, shunchalik qadri ulug‘ bo‘lmaydimi?</titletext>
+                            <titletext1>Taxtda bitta o‘rin, ammo chegara hamisha jur’at bilan belgilanadi</titletext1>
+                            <titletext1>Qanchalik keskin bo‘lsa chizgi, shunchalik jilo kuchli bo‘ladi</titletext1>
+                            <randoletters>noyoblik izlari har bir qirramizda</randoletters>
+                            <div class="mmmainover"></div>
+                            <div class="mmaintainer">
+                                <input type="radio" id="mintro" name="content" checked>
+                                <div class="mmainin">
+
+                                    <div class="cornicetta">
+
+                                        <div class="tit">"U go‘yo taqdir tomonidan o‘zgacha yaratilgandek edi — qo‘lida
+                                            kuch, qalbida esa yonib turgan jilosini hech kim o‘chirib qo‘ya olmasdi. Uni
+                                            xiyonatga qarshi g‘azab, sadoqatga nisbatan esa cheksiz muhabbat boshqalar
+                                            anglamagan darajada chuqur va keskin yo‘ldan olib o‘tardi. Royal Quintetning
+                                            har bir asari singari, u ham tug‘ilganidan boshlab betakror, nazardan
+                                            qochmaydigan kuchning o‘z timsoli edi."</div>
+
+                                        <div class="contenitoregiflunga">
+                                            <div class="gif_lunga"></div>
+                                        </div>
+
+                                        <div style="height: 175px; overflow: auto; padding: 10px;">
+                                            Dicevano che da <c>Ilvermony</c> hamroh bo‘lib kelgani kuch emas, balki
+                                            yaratishga bo‘lgan <d>qat’iy ishtiyoq</d> edi; uni yashirib bo‘lmaydigan,
+                                            har bir detalda o‘zini namoyon qiladigan iste’dod edi. Royal Quintet bugun
+                                            mashhur bo‘lishining sababi ham shu — har bir buyum orqasida juda erta
+                                            uyg‘ongan mahorat va hech kim noto‘g‘ri talqin qila olmaydigan jasorat
+                                            yotadi. Endi esa aytishlaricha, u <b>Prefekt nishoni</b>ni taqishidan ancha
+                                            oldin ham o‘z yo‘lida qat’iy bo‘lgan, va aynan shu qat’iyat Royal Quintet
+                                            buyumlaridagi nafis shakllar singari tobora aniqroq ko‘rina boshlagan;
+                                            o‘tkir nigohli, ichida <e>tabiiy joziba</e> yashiringan inson qo‘lidan
+                                            chiqqanidek.
+
+                                            Endi uning ichidagi energia avvalgidek shiddatli emas — u sokin, ammo
+                                            kuchli, xuddi <f>dovul boshlanishidan oldingi sukunat</f> kabi. Shunga
+                                            qaramay, uning ichki olamidan hali ham ijodiy betartiblik jilvalanadi, va bu
+                                            tartibni faqat <k>Corniolo tayoqchasi</k> emas, balki Royal Quintetning
+                                            o‘ziga xos uslubi tartibga soladi. Uning tabassumlari haqida ko‘p
+                                            gapirishmaydi, biroq endi u jilmayganda hech qanday yashirin ishora yoki
+                                            ma’no yo‘q — faqat ishonch, mahorat va sokin nafislik bor.
+
+                                            <div style="text-align: right"><i> Aytishlaricha, endi u dovon izlamaydi
+                                                    —<br> ularni o‘zi yaratadi, faqat soyada, faqat limited kolleksiya
+                                                    kabi portlovchi darajada qimmatli qilib.</i></div>
+                                        </div>
+                                    </div>
+
+
+                                    <br><br><br>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="b2">
+                <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" type="text/css">
+
+                <br>
+
+                <center>
+                    <table width="550px">
+                        <center>
+                            <br>
+                            <br>
+                            <div class="immaginegrande">
+                            </div>
+                        </center>
+
+                        <div
+                            style="position: relative; width: 400px; height: 300px; background-image: url('https://i.imgur.com/keEeYup.png'); text-align: justify;  opacity: 0.99; color: #3a3a3a; font-family: arial; letter-spacing: 1px; border: 2px solid #000; margin-top: -100px; margin-left: 50px; z-index: 1;">
+                            <center>
+                                <br>
+                                <div class="gifRebe">
+                                    <img src="Rasimlar/R4.jpg">
+                                    <img src="Rasimlar/R5.jpg">
+                                    <img src="Rasimlar/R6.jpg">
+                                </div>
+                                <div class="fraseRebe">Royal Quintet<a href="#apriModaly"><span
+                                            class="light">wand</span></a>, har bir detalda san’at mujassamlashgan.
+                                </div>
+                                <br>
+                                <div class="boxTestoRebe">
+                                    <div class="boxSxRebe" id="startRebe"><br>
+<d>Royal Quintet</d> <span style="border-bottom:1px dotted; letter-spacing: 4px;">betartiblik va ilhom</span><br>
+<d>Eksklyuziv kollektsiya</d> <span style="border-bottom:1px dotted; letter-spacing: 4px;">har bir buyum o‘ziga xos</span><br>
+<d>Nafis dizayn</d> <span style="border-bottom:1px dotted; letter-spacing: 4px;">cheklangan va noyob</span><br>
+<d>San’at va mahorat</d> <span style="border-bottom:1px dotted; letter-spacing: 4px;">har detalda mujassam</span><br>
+                                        <br>
+                                    </div>
+
+                                    <div class="boxDxRebe">
+
+                                    </div>
+                                    <div id="apriModaly" class="modalonaFiga">
+                                        <div class="divModale">
+                                            <a href="#close" title="Close" class="chiudiModaly">x</a>
+                                            <center>
+                                                <img src="https://i.postimg.cc/MHncr0Tj/360-F-228252914-9y-Cgctr-LMNijz3-UHtv-I32-Aq-Lo2-RXNMWM.jpg"
+                                                    style='width: 180px; mix-blend-mode: color-burn;'>
+                                                <br>
+                                                <br>
+                                                <i>12" ½, leggermente flessibile</i><br>
+                                                Legno: <i>Corniolo</i><br>
+                                                Anima: <i>Crine di Kelpie</i>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div style='position: relative; margin-top: -70px; margin-left: 450px; z-index: 2;'>
+                            <img src='https://i.postimg.cc/T2gFxcxt/kisspng-agate-runestone-gemstone-heliotrope-agate-stone-5b099d00d49244-1668781215273566728707.png'
+                                border='0' style='width: 80px;' />
+                        </div>
+                        <div style='position: relative; margin-top: -90px; margin-left: 330px; z-index: 2;'>
+                            <img src='https://i.postimg.cc/KjFgz5jd/Dark-arts-and-little-dragon.png' border='0' alt=''
+                                style='width: 110px;' />
+                        </div>
+                        <br>
+                        <br>
+            </div>
+
+            <div class="b3">
+                <center>
+                    <div class="boxtitolo">
+                        <x2><span class="zoom">Tungi sukunatda ham Royal Quintet ilhomi yonadi, atrofda jimlik
+                                bo‘lsa ham.</span></x2><br>
+                        <y2>Ustalar tafakkurida tug‘ilgan g‘oyalar, <span class="light">ertalab ilk nur bilan
+                                shakl topgan noyob san’atga aylanadi.</span>
+                        </y2>
+                    </div>
+
+                    <div class="contenitore">
+                        <div class="immSN">
+                            <img src="Rasimlar/R2.jpg"
+                                style="width: 200px; height: 377px; outline: 1px dashed #ceb236; outline-offset: 5px;" />
+                        </div>
+                        <div class="immDX">
+                            <img src="Rasimlar/R5.jpg"
+                                style="width: 254px; height: 377px; outline: 1px dashed #ceb236; outline-offset: 5px;" />
+                        </div>
+
+                        <div class="box">
+                            <div class="testo">
+                                Royal Quintet o‘z bilan yillar davomida shakllangan
+                                <b>betakror mahorat va qat’iyatni</b> olib keladi;
+                                har bir buyumning yaltirashi uning ustalariga xos
+                                oltin va nafislik uyg‘unligining timsolidir.
+                                Kompanianing mohiyati — mijozni chuqur tushunish va
+                                <x>har bir o‘lchamni, har bir grammni mutlaq aniqlikda</x>
+                                faqat u uchun yaratilgan buyumga aylantirishdir.<br>
+                                Royal Quintetning nigohi — har bir detaldagi mukammallik,
+                                <span style="border-bottom:1px dotted">har bir qirrada yashiringan san’at
+                                    ruhi</span>,
+                                dunyoda yagona bo‘ladigan zargarlik asarlarini yaratishga
+                                unda kuch bo‘lib xizmat qiladi.<br>
+                                Har bir chiziq, har bir shakl o‘ziga xos ma’noga ega,
+                                bu esa kompaniyaning nafaqat iste’dod, balki sof
+                                <b>tanlov falsafasiga</b> sodiqligini aks ettiradi.<br><br>
+                                <i>
+                                    <y>Shu bois Royal Quintet har bir mahsulotni oddiy buyum emas,
+                                        balki cheklangan miqdordagi, kolleksion qiymatga ega
+                                        nodir san’at asariga aylantiradi.</y>
+                                </i>
+                                </i><br><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;"><audio controls="true" autoplay="false" preload="none"
+                            style="filter: invert(100%); width: 180px; height: 14px; opacity: 0.6; margin-top: 0px; margin-left: 377px; margin-bottom: 40px; border-right: 1px dashed #314dc9; border-left: 1px dashed #314dc9; border-bottom: 1px dashed #314dc9; border-radius: 0 0 10px 10px;">
+                            <source src="Audio/Royal Quintet - Mystical Ambient Music.mp3" type="audio/mp3">
+                        </audio>
+                        </audio>
+                    </div>
+                </center>
+
+
+            </div>
+
+            <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

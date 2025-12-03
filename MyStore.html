@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+        }
+
+        .gallery {
+            position: relative;
+            z-index: 2;
+            padding: 10px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            transition: all .5s ease-in-out;
+            transform: translateZ(0);
+
+            &.pop {
+                filter: blur(10px);
+            }
+
+            figure {
+                flex-basis: 33.333%;
+                padding: 10px;
+                overflow: hidden;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                     border-radius: 2%;
+                    transition: all .3s ease-in-out;
+                }
+                &:hover img {
+                    transform: scale(1.3);
+                    
+                }
+
+                figcaption {
+                    display: none;
+                }
+
+            }
+        }
+
+        .popup {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            opacity: 0;
+            transition: opacity .5s ease-in-out .2s;
+
+
+            &.pop {
+                opacity: 1;
+                transition: opacity .2s ease-in-out 0s;
+
+                figure {
+                    margin-top: 0;
+                    opacity: 1;
+                }
+            }
+
+            figure {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transform-origin: 0 0;
+                margin-top: 30px;
+                opacity: 0;
+                animation: poppy 500ms linear both;
+
+                img {
+                    position: relative;
+                    z-index: 2;
+                    box-shadow: 0 1px 5px rgba(0, 0, 0, .2), 0 6px 30px rgba(0, 0, 0, .4);
+                }
+
+                figcaption {
+                    position: absolute;
+                    bottom: 50px;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.78));
+                    z-index: 2;
+                    width: 100%;
+                    padding: 100px 20px 20px 20px;
+                    color: #fff;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 32px;
+
+                    small {
+                        font-size: 11px;
+                        display: block;
+                        text-transform: uppercase;
+                        margin-top: 12px;
+                        text-indent: 3px;
+                        opacity: .7;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .shadow {
+                    position: relative;
+                    z-index: 1;
+                    top: -56px;
+                    margin: 0 auto;
+                    background-position: center bottom;
+                    background-repeat: no-repeat;
+                    width: 98%;
+                    height: 50px;
+                    opacity: .9;
+                    filter: blur(16px) contrast(1.5);
+                    transform: scale(0.95, -0.7);
+                    transform-origin: center bottom;
+                }
+            }
+
+            .close {
+                position: absolute;
+                z-index: 3;
+                top: 10px;
+                right: 10px;
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+                background: url(#close);
+                border-radius: 25px;
+                background: rgba(0, 0, 0, .1);
+                box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        @keyframes poppy {
+            0% {
+                transform: matrix3d(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            }
+
+            3.4% {
+                transform: matrix3d(0.316, 0, 0, 0, 0, 0.407, 0, 0, 0, 0, 1, 0, -94.672, -91.573, 0, 1);
+            }
+
+            4.3% {
+                transform: matrix3d(0.408, 0, 0, 0, 0, 0.54, 0, 0, 0, 0, 1, 0, -122.527, -121.509, 0, 1);
+            }
+
+            4.7% {
+                transform: matrix3d(0.45, 0, 0, 0, 0, 0.599, 0, 0, 0, 0, 1, 0, -134.908, -134.843, 0, 1);
+            }
+
+            6.81% {
+                transform: matrix3d(0.659, 0, 0, 0, 0, 0.893, 0, 0, 0, 0, 1, 0, -197.77, -200.879, 0, 1);
+            }
+
+            8.61% {
+                transform: matrix3d(0.82, 0, 0, 0, 0, 1.097, 0, 0, 0, 0, 1, 0, -245.972, -246.757, 0, 1);
+            }
+
+            9.41% {
+                transform: matrix3d(0.883, 0, 0, 0, 0, 1.168, 0, 0, 0, 0, 1, 0, -265.038, -262.804, 0, 1);
+            }
+
+            10.21% {
+                transform: matrix3d(0.942, 0, 0, 0, 0, 1.226, 0, 0, 0, 0, 1, 0, -282.462, -275.93, 0, 1);
+            }
+
+            12.91% {
+                transform: matrix3d(1.094, 0, 0, 0, 0, 1.328, 0, 0, 0, 0, 1, 0, -328.332, -298.813, 0, 1);
+            }
+
+            13.61% {
+                transform: matrix3d(1.123, 0, 0, 0, 0, 1.332, 0, 0, 0, 0, 1, 0, -336.934, -299.783, 0, 1);
+            }
+
+            14.11% {
+                transform: matrix3d(1.141, 0, 0, 0, 0, 1.331, 0, 0, 0, 0, 1, 0, -342.273, -299.395, 0, 1);
+            }
+
+            17.22% {
+                transform: matrix3d(1.205, 0, 0, 0, 0, 1.252, 0, 0, 0, 0, 1, 0, -361.606, -281.592, 0, 1);
+            }
+
+            17.52% {
+                transform: matrix3d(1.208, 0, 0, 0, 0, 1.239, 0, 0, 0, 0, 1, 0, -362.348, -278.88, 0, 1);
+            }
+
+            18.72% {
+                transform: matrix3d(1.212, 0, 0, 0, 0, 1.187, 0, 0, 0, 0, 1, 0, -363.633, -267.15, 0, 1);
+            }
+
+            21.32% {
+                transform: matrix3d(1.196, 0, 0, 0, 0, 1.069, 0, 0, 0, 0, 1, 0, -358.864, -240.617, 0, 1);
+            }
+
+            24.32% {
+                transform: matrix3d(1.151, 0, 0, 0, 0, 0.96, 0, 0, 0, 0, 1, 0, -345.164, -216.073, 0, 1);
+            }
+
+            25.23% {
+                transform: matrix3d(1.134, 0, 0, 0, 0, 0.938, 0, 0, 0, 0, 1, 0, -340.193, -210.948, 0, 1);
+            }
+
+            28.33% {
+                transform: matrix3d(1.075, 0, 0, 0, 0, 0.898, 0, 0, 0, 0, 1, 0, -322.647, -202.048, 0, 1);
+            }
+
+            29.03% {
+                transform: matrix3d(1.063, 0, 0, 0, 0, 0.897, 0, 0, 0, 0, 1, 0, -318.884, -201.771, 0, 1);
+            }
+
+            29.93% {
+                transform: matrix3d(1.048, 0, 0, 0, 0, 0.899, 0, 0, 0, 0, 1, 0, -314.277, -202.202, 0, 1);
+            }
+
+            35.54% {
+                transform: matrix3d(0.979, 0, 0, 0, 0, 0.962, 0, 0, 0, 0, 1, 0, -293.828, -216.499, 0, 1);
+            }
+
+            36.74% {
+                transform: matrix3d(0.972, 0, 0, 0, 0, 0.979, 0, 0, 0, 0, 1, 0, -291.489, -220.242, 0, 1);
+            }
+
+            39.44% {
+                transform: matrix3d(0.962, 0, 0, 0, 0, 1.01, 0, 0, 0, 0, 1, 0, -288.62, -227.228, 0, 1);
+            }
+
+            41.04% {
+                transform: matrix3d(0.961, 0, 0, 0, 0, 1.022, 0, 0, 0, 0, 1, 0, -288.247, -229.999, 0, 1);
+            }
+
+            44.44% {
+                transform: matrix3d(0.966, 0, 0, 0, 0, 1.032, 0, 0, 0, 0, 1, 0, -289.763, -232.215, 0, 1);
+            }
+
+            52.15% {
+                transform: matrix3d(0.991, 0, 0, 0, 0, 1.006, 0, 0, 0, 0, 1, 0, -297.363, -226.449, 0, 1);
+            }
+
+            59.86% {
+                transform: matrix3d(1.006, 0, 0, 0, 0, 0.99, 0, 0, 0, 0, 1, 0, -301.813, -222.759, 0, 1);
+            }
+
+            61.66% {
+                transform: matrix3d(1.007, 0, 0, 0, 0, 0.991, 0, 0, 0, 0, 1, 0, -302.102, -222.926, 0, 1);
+            }
+
+            63.26% {
+                transform: matrix3d(1.007, 0, 0, 0, 0, 0.992, 0, 0, 0, 0, 1, 0, -302.171, -223.276, 0, 1);
+            }
+
+            75.28% {
+                transform: matrix3d(1.001, 0, 0, 0, 0, 1.003, 0, 0, 0, 0, 1, 0, -300.341, -225.696, 0, 1);
+            }
+
+            83.98% {
+                transform: matrix3d(0.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -299.61, -225.049, 0, 1);
+            }
+
+            85.49% {
+                transform: matrix3d(0.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -299.599, -224.94, 0, 1);
+            }
+
+            90.69% {
+                transform: matrix3d(0.999, 0, 0, 0, 0, 0.999, 0, 0, 0, 0, 1, 0, -299.705, -224.784, 0, 1);
+            }
+
+            100% {
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -300, -225, 0, 1);
+            }
+        }
+    </style>
+
+    <title>ROYAL QUINTET</title>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-dollar-circle  bx-lg'></i>
+            <span class="text">ROYAL QUINTET</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="index.html">
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Bosh oyna</span>
+                </a>
+            </li>
+            <li>
+                <a href="Dashboard.html">
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class='bx bxs-shopping-bag-alt bx-sm'></i>
+                    <span class="text">My Store</span>
+                </a>
+            </li>
+            <li>
+                <a href="Analytics.html">
+                    <i class='bx bxs-doughnut-chart bx-sm'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="LimitedTreasures.html">
+                    <i class='bx bxs-message-dots bx-sm'></i>
+                    <span class="text">Limited Treasures</span>
+                </a>
+            </li>
+            <li>
+                <a href="Invitations.html">
+                    <i class='bx bxs-group bx-sm'></i>
+                    <span class="text">Invitations</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog bx-sm bx-spin-hover'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="logout">
+                    <i class='bx bx-power-off bx-sm bx-burst-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu bx-sm'></i>
+            <a href="#" class="nav-link" id="categoriesLink">Menu</a>
+            <div class="categories-menu" id="categoriesMenu">
+                <ul>
+                    <li><a href="#"><i class='bx bxs-devices'></i>Electronics</a></li>
+                    <li><a href="#"><i class='bx bxs-t-shirt'></i>Fashion</a></li>
+                    <li><a href="#"><i class='bx bxs-home'></i>Home & Garden</a></li>
+                    <li><a href="#"><i class='bx bxs-football'></i>Sports</a></li>
+                    <li><a href="#"><i class='bx bxs-book'></i>Books</a></li>
+                </ul>
+            </div>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+            <label class="swith-lm" for="switch-mode" title="Toggle Dark/Light Mode">
+                <i class="bx bxs-moon"></i>
+                <i class="bx bx-sun"></i>
+                <div class="ball"></div>
+            </label>
+
+            <!-- Notification Bell -->
+            <a href="#" class="notification" id="notificationIcon" aria-label="Notifications">
+                <i class='bx bxs-bell bx-tada-hover'></i>
+                <span class="num">5</span>
+            </a>
+            <div class="notification-menu" id="notificationMenu">
+                <ul>
+                    <li>New message from John</li>
+                    <li>Your order has been shipped</li>
+                    <li>New comment on your post</li>
+                    <li>Update available for your app</li>
+                    <li>Reminder: Meeting at 3PM</li>
+                </ul>
+            </div>
+
+            <!-- Profile Menu -->
+            <a href="#" class="profile" id="profileIcon">
+                <img src="data:image/png;base64,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"
+                    alt="Profile">
+            </a>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- NAVBAR -->
+
+
+        <!--
+
+Photos from unsplash.com
+
+Follow me on
+Dribbble: https://dribbble.com/supahfunk
+Twitter: https://twitter.com/supahfunk
+Codepen: https://codepen.io/supah/
+
+-->
+        <div class="gallery">
+            <figure>
+                <img src="https://news-images.dhan.co/goldiam-international-expands-retail-footprint-with-new-origem-store-in-mumbai.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://news-images.dhan.co/goldiam-international-reports-record-q1-performance-expands-origem-retail-presence.jpg"
+                    alt="" />
+                <figcaption>Териберка, gorod Severomorsk <small>Russia</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://images.jdmagicbox.com/comp/def_content_category/diamond-studded-gold-jewellery-manufacturers/360-f-742639461-pnmdxelpafvxo0qw8dcnbkwzmc8bgliu-diamond-studded-gold-jewellery-manufacturers-2-z3oc8.jpg"
+                    alt="" />
+                <figcaption>
+                    Bad Pyrmont <small>Deutschland</small>
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="https://news-images.dhan.co/goldiam-international-overcomes-tariff-headwinds-to-post-strong-q2-and-h1-results.jpg"
+                    alt="" />
+                <figcaption>Yellowstone National Park <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://cdn.sanity.io/images/wogxhpso/production-v2/3c01090849c0a03bcde03bd4e24cec81c0901d37-8256x6192.jpg"
+                    alt="" />
+                <figcaption>Quiraing, Portree <small>United Kingdom</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.mytheresa.com/media/1094/1238/100/1b/P01085738.jpg"
+                    alt="" />
+                <figcaption>Highlands <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.charriol.com/cdn/shop/files/Forever-Magnifique-Ring-2025-Philippe-Charriol-International-Ltd-35205121835262.jpg?v=1750384332"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.effyjewelry.com/cdn/shop/files/effy-ring-wz0gl78d74-1.jpg?v=1683832438"
+                    alt="" />
+                <figcaption>Териберка, gorod Severomorsk <small>Russia</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://pbs.twimg.com/profile_images/1306365892/image_400x400.jpg"
+                    alt="" />
+                <figcaption>
+                    Bad Pyrmont <small>Deutschland</small>
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.matthewsjewellers.com/cdn/shop/products/TheGrace.jpg?v=1617678056&width=1200"
+                    alt="" />
+                <figcaption>Yellowstone National Park <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.professionaljeweller.com/2022/11/11630-1.jpg"
+                    alt="" />
+                <figcaption>Quiraing, Portree <small>United Kingdom</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.giovanniraspini.com/dw/image/v2/BFXV_PRD/on/demandware.static/-/Library-Sites-raspini_shared/default/dw75f499b6/Stories/2022-Floral-Jungle/HERO_FLORALJUNGLE_M.jpg?q=80"
+                    alt="" />
+                <figcaption>Highlands <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://bellarriconcierge.com/cdn/shop/products/R4916WAQ_1400x.jpg?v=1741893847"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://cdn.globalso.com/lovefiregem/812961266-31.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://zargarshop.com/cdn/shop/files/67a9f86ca0237.png?v=1741073625&width=533"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://yourgemstone.net/wp-content/uploads/2025/08/tsavorite-garnet-diamond-silver-bracelet-front-view-your-gemstone.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://yourgemstone.net/wp-content/uploads/2024/01/zultanite-natural-stone-cuff-model-rose-silver-bracelet-large-size-25.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://5.imimg.com/data5/LD/SS/AG/SELLER-2283740/diamod-necklace-set-500x500.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://benimadhojewellers.com/wp-content/uploads/2024/06/ghdf.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.christies.com/img/LotImages/2020/CKS/2020_CKS_18374_0168_000(diamond_earrings_harry_winston072920).jpg?mode=max"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+            <figure>
+                <img src="https://www.labgrown.com/cache/media/products-media-large/enr551_mainimage_120116.jpg"
+                    alt="" />
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+            </figure>
+
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+            <symbol id="close" viewBox="0 0 18 18">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+			S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+			l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+			c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+			s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z" />
+            </symbol>
+        </svg>
+
+
+
+
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+
+    <script>
+        popup = {
+            init: function () {
+                $('figure').click(function () {
+                    popup.open($(this));
+                });
+
+                $(document).on('click', '.popup img', function () {
+                    return false;
+                }).on('click', '.popup', function () {
+                    popup.close();
+                })
+            },
+            open: function ($figure) {
+                $('.gallery').addClass('pop');
+                $popup = $('<div class="popup" />').appendTo($('body'));
+                $fig = $figure.clone().appendTo($('.popup'));
+                $bg = $('<div class="bg" />').appendTo($('.popup'));
+                $close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
+                $shadow = $('<div class="shadow" />').appendTo($fig);
+                src = $('img', $fig).attr('src');
+                $shadow.css({ backgroundImage: 'url(' + src + ')' });
+                $bg.css({ backgroundImage: 'url(' + src + ')' });
+                setTimeout(function () {
+                    $('.popup').addClass('pop');
+                }, 10);
+            },
+            close: function () {
+                $('.gallery, .popup').removeClass('pop');
+                setTimeout(function () {
+                    $('.popup').remove()
+                }, 100);
+            }
+        }
+
+        popup.init()
+
+    </script>
+</body>
+
+</html>
